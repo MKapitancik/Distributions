@@ -10,6 +10,8 @@ class Cdf(_DictContainer):
         self.xs, freq = zip(*hist.d.items())
         self.xp = list(map(float, accumulate(freq)))
         self.xp = [ x / self.xp[-1] for x in self.xp]
+        self.xs = [0] + list(self.xs)
+        self.xp = [0.0] + list(self.xp)
 
     def x(self):
         return list(map(str, self.xs))
